@@ -4,7 +4,7 @@ from functions import send_data
 
 root = CTk()
 
-root.geometry('1150x500+200+100')
+root.geometry('1150x500+50+100')
 root.resizable(0, 0)
 root.config(bg='green')
 
