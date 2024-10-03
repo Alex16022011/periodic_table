@@ -4,7 +4,7 @@ from functions import send_data
 
 root = CTk()
 
-root.geometry('900x500+300+10')
+root.geometry('1150x500+200+100')
 root.resizable(0, 0)
 root.config(bg='green')
 
@@ -22,6 +22,10 @@ name_3.grid(row=0, column=3, padx=(10, 10))
 
 name_4 = CTkLabel(master=root, text='Атомный номер', font=('Arial', 25), bg_color='green', fg_color='green')
 name_4.grid(row=0, column=4, padx=(10, 10))
+
+name_5 = CTkLabel(master=root, text='Металл/Не металл', font=('Arial', 25), bg_color='green', fg_color='green')
+name_5.grid(row=0, column=5, padx=(10, 10))
+
 
 
 
@@ -41,12 +45,17 @@ pronounce.grid(row=1, column=3, padx=(10, 10))
 atom_number = CTkEntry(master=root, font=('Arial', 25), bg_color='green', corner_radius=300)
 atom_number.grid(row=1, column=4, padx=(10, 10))
 
-send = CTkButton(master=root, text='Отправить', font=('Arial', 25), bg_color='green', corner_radius=300, command=lambda: send_data(number.get(), 
-                                                                                                                                   name.get(), 
-                                                                                                                                   letter.get(), 
-                                                                                                                                   pronounce.get(), 
-                                                                                                                                   atom_number.get()))
+met_ne_met = CTkEntry(master=root, font=('Arial', 25), bg_color='green', corner_radius=300)
+met_ne_met.grid(row=1, column=5, padx=(10, 10))
 
-send.grid(row=2, column=2, pady=(40, 0))
+send = CTkButton(master=root, text='Отправить', font=('Arial', 25), bg_color='green', corner_radius=300, command=lambda: send_data(root,
+                                                                                                                                   number, 
+                                                                                                                                   name, 
+                                                                                                                                   letter, 
+                                                                                                                                   pronounce, 
+                                                                                                                                   atom_number,
+                                                                                                                                   met_ne_met))
+
+send.grid(row=2, column=2, columnspan=2, pady=(40, 0))
 
 root.mainloop()
